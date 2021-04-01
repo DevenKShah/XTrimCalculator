@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/XTrimCalculator.ConsoleApp/bin/Debug/netcoreapp3.1/XTrimCalculator.ConsoleApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "externalTerminal",
             "stopAtEntry": false
         },
         {
