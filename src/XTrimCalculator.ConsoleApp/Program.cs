@@ -23,7 +23,12 @@ namespace XTrimCalculator.ConsoleApp
                 .ConfigureLogging(l => 
                 {
                     l.ClearProviders();
-                    l.AddConsole();
+                    l.AddSimpleConsole(options => 
+                    {
+                        options.IncludeScopes = true;
+                        options.SingleLine = true;
+                        options.TimestampFormat = "hh:mm:ss ";
+                    });
                 });
     }
 }
