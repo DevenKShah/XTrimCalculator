@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTrimCalculator.Application", "XTrimCalculator.Application\XTrimCalculator.Application.csproj", "{AF6E9958-0E1C-4728-B060-11EB30800ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTrimCalculator.Application", "XTrimCalculator.Application\XTrimCalculator.Application.csproj", "{AF6E9958-0E1C-4728-B060-11EB30800ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTrimCalculator.Domain", "XTrimCalculator.Domain\XTrimCalculator.Domain.csproj", "{F88455C7-69A6-450D-9099-4D554033D3DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTrimCalculator.Domain", "XTrimCalculator.Domain\XTrimCalculator.Domain.csproj", "{F88455C7-69A6-450D-9099-4D554033D3DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTrimCalculator.Infrastructure", "XTrimCalculator.Infrastructure\XTrimCalculator.Infrastructure.csproj", "{8F0778E1-E5C7-4F48-8100-AE327607A95C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTrimCalculator.Infrastructure", "XTrimCalculator.Infrastructure\XTrimCalculator.Infrastructure.csproj", "{8F0778E1-E5C7-4F48-8100-AE327607A95C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTrimCalculator.ConsoleApp", "XTrimCalculator.ConsoleApp\XTrimCalculator.ConsoleApp.csproj", "{E53EACC1-B196-4AEA-A1B5-DE3BE214A9C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTrimCalculator.ConsoleApp", "XTrimCalculator.ConsoleApp\XTrimCalculator.ConsoleApp.csproj", "{E53EACC1-B196-4AEA-A1B5-DE3BE214A9C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTrimCalculator.UnitTests", "XTrimCalculator.UnitTests\XTrimCalculator.UnitTests.csproj", "{3207333A-1947-4843-A347-954BE7A9FE48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTrimCalculator.UnitTests", "XTrimCalculator.UnitTests\XTrimCalculator.UnitTests.csproj", "{3207333A-1947-4843-A347-954BE7A9FE48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AF6E9958-0E1C-4728-B060-11EB30800ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -86,5 +83,11 @@ Global
 		{3207333A-1947-4843-A347-954BE7A9FE48}.Release|x64.Build.0 = Release|Any CPU
 		{3207333A-1947-4843-A347-954BE7A9FE48}.Release|x86.ActiveCfg = Release|Any CPU
 		{3207333A-1947-4843-A347-954BE7A9FE48}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47EFDA75-109F-4137-A085-BBEBDFAF394E}
 	EndGlobalSection
 EndGlobal

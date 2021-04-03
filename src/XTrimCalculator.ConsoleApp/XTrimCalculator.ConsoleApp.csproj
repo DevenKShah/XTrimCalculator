@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\XTrimCalculator.Application\XTrimCalculator.Application.csproj" />
     <ProjectReference Include="..\XTrimCalculator.Domain\XTrimCalculator.Domain.csproj" />
+    <ProjectReference Include="..\XTrimCalculator.Infrastructure\XTrimCalculator.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
