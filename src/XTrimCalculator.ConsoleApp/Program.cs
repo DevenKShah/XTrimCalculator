@@ -2,6 +2,12 @@
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using XTrimCalculator.Domain.Interfaces;
+using XTrimCalculator.Infrastructure.Services;
+using XTrimCalculator.Application;
+using FluentValidation;
+using System.Collections.Generic;
+using XTrimCalculator.Domain.Entities;
 
 namespace XTrimCalculator.ConsoleApp
 {
@@ -29,6 +35,13 @@ namespace XTrimCalculator.ConsoleApp
                         options.SingleLine = true;
                         options.TimestampFormat = "hh:mm:ss ";
                     });
+                })
+                .ConfigureServices((_, services) => 
+                {
+                    services.AddTransient<IFileReadService, FileReadService>();
+                    services.AddTransient<IValidator<IEnumerable<Instruction>>, InstructionsValidator>();
+                    services.AddTransient<ICalculatorService, CalculatorService>();
+                    services.AddTransient<ICalculatorOrchestrator, CalculatorOrchestrator>();
                 });
     }
 }
