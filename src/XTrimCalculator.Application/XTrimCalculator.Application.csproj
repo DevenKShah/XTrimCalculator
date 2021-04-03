@@ -1,4 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.3" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\XTrimCalculator.Domain\XTrimCalculator.Domain.csproj" />

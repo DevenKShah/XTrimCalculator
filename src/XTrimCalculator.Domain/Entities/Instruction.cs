@@ -6,6 +6,12 @@ namespace XTrimCalculator.Domain.Entities
     {
         public Operation Operation { get; }
         public decimal Value { get; }
+        public Instruction(Operation operation, decimal value)
+        {
+            Operation = operation;
+            Value = value;
+        }
+
         public Instruction(string operation, string value)
         {
             if (Enum.TryParse<Operation>(operation, true, out var op))
