@@ -46,7 +46,7 @@ namespace XTrimCalculator.UnitTests.Application
             //Arrange
             var instructions = new[]
             {
-                new Instruction(Operation.Add, 1),
+                new Instruction(Operation.Apply, 1),
                 new Instruction(Operation.Add, 1),
             };
             var validator = new InstructionsValidator();

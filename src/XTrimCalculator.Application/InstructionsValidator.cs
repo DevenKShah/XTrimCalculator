@@ -18,10 +18,13 @@ namespace XTrimCalculator.Application
         public InstructionsValidator()
         {
             RuleFor(x => x.Count()).GreaterThan(1).WithMessage(ErrorMessages.NotEnoughInstructions);
-            RuleFor(x => x.Count(x => x.Operation == Operation.Apply)).Equal(0).WithMessage(ErrorMessages.ThereCanBeOnlyOneApplyOperation);
+            
             When(x => x.Count() > 1, () =>
             {
+                RuleFor(x => x.Count(x => x.Operation == Operation.Apply)).Equal(1).WithMessage(ErrorMessages.ThereCanBeOnlyOneApplyOperation);
+
                 RuleFor(x => x.Last().Operation).Equal(Operation.Apply).WithMessage(ErrorMessages.LastOperationIsNotApply);
+
                 RuleForEach(x => x).ChildRules(x =>
                 {
                     x.RuleFor(x => x.Operation).IsInEnum().WithMessage(ErrorMessages.InvalidOperation);
