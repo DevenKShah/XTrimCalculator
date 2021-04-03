@@ -26,5 +26,15 @@ namespace XTrimCalculator.Domain.Extensions
                 }
             }).ToList();
         }
+
+        public static decimal ApplyInstruction(this decimal startValue, Instruction instruction) =>
+            instruction.Operation switch
+            {
+                Operation.Add => startValue + instruction.Value,
+                Operation.Subtract => startValue - instruction.Value,
+                Operation.Multiply => startValue * instruction.Value,
+                Operation.Divide => startValue / instruction.Value,
+                _ => throw new InvalidOperationException()
+            };
     }
 }
