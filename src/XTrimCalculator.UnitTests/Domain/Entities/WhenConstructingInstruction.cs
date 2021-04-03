@@ -29,7 +29,7 @@ namespace XTrimCalculator.UnitTests.Domain.Entities
             //Act
             Action act = () => new Instruction(op, val);
             //Assert
-            act.Should().Throw<ArgumentException>().WithMessage($"Invalid operation {op}, expected add, subtract, multiple, divide or apply");
+            act.Should().Throw<ArgumentException>().WithMessage($"Invalid operation '{op}'. Expected add, subtract, multiple, divide or apply");
         }
 
         [Fact]

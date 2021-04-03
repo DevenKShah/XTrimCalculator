@@ -17,7 +17,7 @@ namespace XTrimCalculator.Domain.Entities
             if (Enum.TryParse<Operation>(operation, true, out var op))
                 Operation = op;
             else
-                throw new ArgumentException($"Invalid operation {operation}, expected add, subtract, multiple, divide or apply");
+                throw new ArgumentException($"Invalid operation '{operation}'. Expected add, subtract, multiple, divide or apply");
 
             if (decimal.TryParse(value, out var val))
                 Value = val;

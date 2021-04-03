@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System.Collections.Generic;
 using XTrimCalculator.Application;
@@ -23,7 +24,8 @@ namespace XTrimCalculator.UnitTests.Application.CalculatorOrchestratorTests
             //Arrange
             validatorMock.Setup(v => v.Validate(It.IsAny<IEnumerable<Instruction>>())).Returns(new ValidationResult());
             calulatorServiceMock.Setup(c => c.Calculate(It.IsAny<IEnumerable<Instruction>>())).Returns(expectedResult);
-            sut = new CalculatorOrchestrator(validatorMock.Object, calulatorServiceMock.Object);
+            var loggerMock = new Mock<ILogger<CalculatorOrchestrator>>();
+            sut = new CalculatorOrchestrator(validatorMock.Object, calulatorServiceMock.Object, loggerMock.Object);
 
             //Act
             result = sut.Execute(new[] {"add 1", "apply 5"});
