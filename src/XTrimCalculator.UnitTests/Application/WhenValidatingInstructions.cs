@@ -93,5 +93,23 @@ namespace XTrimCalculator.UnitTests.Application
             result.Errors.Count.Should().Be(1);
             result.Errors[0].ErrorMessage.Should().Be(InstructionsValidator.ErrorMessages.DivisionByZero);
         }
+
+        [Fact]
+        public void And_More_Than_One_Apply_Operation_Then_Invalid()
+        {
+            //Arrange
+            var instructions = new[]
+            {
+                new Instruction(Operation.Apply, 0),
+                new Instruction(Operation.Apply, 1),
+            };
+            var validator = new InstructionsValidator();
+            //Act
+            var result = validator.Validate(instructions);
+            //Assert
+            result.IsValid.Should().BeFalse();
+            result.Errors.Count.Should().Be(1);
+            result.Errors[0].ErrorMessage.Should().Be(InstructionsValidator.ErrorMessages.ThereCanBeOnlyOneApplyOperation);
+        }
     }
 }

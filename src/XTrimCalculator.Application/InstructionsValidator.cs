@@ -13,10 +13,12 @@ namespace XTrimCalculator.Application
             public const string LastOperationIsNotApply = "The last instruction should be Apply";
             public const string InvalidOperation = "Expected Add, Subtract, Multiply, Divide or Apply";
             public const string DivisionByZero = "Operation Divide cannot have value 0";
+            public const string ThereCanBeOnlyOneApplyOperation = "There can be only one Apply instruction";
         }
         public InstructionsValidator()
         {
             RuleFor(x => x.Count()).GreaterThan(1).WithMessage(ErrorMessages.NotEnoughInstructions);
+            RuleFor(x => x.Count(x => x.Operation == Operation.Apply)).Equal(0).WithMessage(ErrorMessages.ThereCanBeOnlyOneApplyOperation);
             When(x => x.Count() > 1, () =>
             {
                 RuleFor(x => x.Last().Operation).Equal(Operation.Apply).WithMessage(ErrorMessages.LastOperationIsNotApply);
