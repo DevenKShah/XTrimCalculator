@@ -53,6 +53,32 @@ namespace XTrimCalculator.UnitTests.Domain.Extensions
         }
 
         [Fact]
+        public void Then_Ignore_Preceding_And_Leading_Spaces()
+        {
+            //Arrange
+            var lines = new List<string>();
+            lines.Add(" add 1 ");
+            lines.Add(" apply 4 ");
+            //Act
+            var instructions = lines.CreateInstructions();
+            //Assert
+            instructions.Count().Should().Be(2);
+        }
+
+        [Fact]
+        public void Then_Ignore_Multiple_Spaces()
+        {
+            //Arrange
+            var lines = new List<string>();
+            lines.Add(" add   1 ");
+            lines.Add(" apply  4 ");
+            //Act
+            var instructions = lines.CreateInstructions();
+            //Assert
+            instructions.Count().Should().Be(2);
+        }
+
+        [Fact]
         public void And_If_Line_Is_Invalid_Format_Then_Throw_Argument_Exception()
         {
             //Arrange

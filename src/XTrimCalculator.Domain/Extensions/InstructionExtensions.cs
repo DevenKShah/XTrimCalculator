@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using XTrimCalculator.Domain.Entities;
 
 namespace XTrimCalculator.Domain.Extensions
@@ -9,9 +10,15 @@ namespace XTrimCalculator.Domain.Extensions
     {
         public static List<Instruction> CreateInstructions(this IEnumerable<string> instructionLines)
         {
+            Func<string, string> CleanUpWhiteSpaces = source =>
+            {
+                var regex = new Regex("[ ]{2,}");
+                return regex.Replace(source, " ").Trim();
+            };
+
             return instructionLines.Where(l => string.IsNullOrWhiteSpace(l) == false).Select((line, index) =>
             {
-                var splitData = line.Split(" ");
+                var splitData = CleanUpWhiteSpaces(line).Split(" ");
                 if (splitData.Length != 2)
                 {
                     throw new ArgumentException($"Invalid line {index + 1}");
