@@ -1,48 +1,36 @@
-# XTrimCalculator
+# XTrim Calculator
 
-## Setup
 
+This console application expects instructions for calculations. The instructions are in the format of `operation value`. 
+
+The possible operations are:
+* Add
+* Subtract
+* Multiply
+* Delete 
+* Apply
+
+There can be any number of instructions, but there can be only one `Apply` instruction which has to be the last one. 
+
+For example: 
 ```
-dotnet new --install Microsoft.DotNet.Web.ProjectTemplates.3.1::3.1.13
-
-git clone https://github.com/DevenKShah/XTrimCalculator.git
-
-cd XTrimCalculator
-
-dotnet new gitignore
-
-md src
-
-cd src
-
-dotnet new sln -n XTrimCalculator  
-
-dotnet new classlib -n XTrimCalculator.Application  --framework netcoreapp3.1
-
-dotnet new classlib -n XTrimCalculator.Domain   --framework netcoreapp3.1
-
-dotnet new classlib -n XTrimCalculator.Infrastructure  --framework netcoreapp3.1
-
-dotnet new console -n XTrimCalculator.ConsoleApp  --framework netcoreapp3.1
-
-dotnet new xunit -n XTrimCalculator.UnitTests  --framework netcoreapp3.1
-
-dotnet sln add .\XTrimCalculator.Application
-
-dotnet sln add .\XTrimCalculator.Domain
-
-dotnet sln add .\XTrimCalculator.Infrastructure
-
-dotnet sln add .\XTrimCalculator.ConsoleApp
-
-dotnet sln add .\XTrimCalculator.UnitTests
-
-dotnet add  .\XTrimCalculator.Application  reference  .\XTrimCalculator.Domain
-
-dotnet add  .\XTrimCalculator.Infrastructure  reference  .\XTrimCalculator.Domain
-
-dotnet add  .\XTrimCalculator.ConsoleApp  reference  .\XTrimCalculator.Domain
-
-dotnet add  .\XTrimCalculator.UnitTests  reference  .\XTrimCalculator.Domain  .\XTrimCalculator.Application  .\XTrimCalculator.Infrastructure
-
+[Input]
+add 2
+multiply 5
+apply 3
 ```
+
+The calculation takes seed from the `apply` instruction and applies each instruction in the order they appear from the top. It ignores any mathematical precedence. 
+
+The above example will be executed as follows:
+
+
+`(3 + 2) * 5 = 25`
+
+The instructions can be saved in a text file which can be passed as argument to the application. 
+
+`XTrimCalculator.ConsoleApp C:\Temp\instruction.txt`
+
+The instructions can also be passed directly to the application
+
+`XTrimCalculator.ConsoleApp "add 2" "mulitply 5" "apply 3"`
