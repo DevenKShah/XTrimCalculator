@@ -15,6 +15,5 @@ namespace XTrimCalculator.Application
 
             return otherInstructions.Aggregate(applyInstruction.Value, (sum, val) => sum.ApplyInstruction(val));
         }
-
     }
 }

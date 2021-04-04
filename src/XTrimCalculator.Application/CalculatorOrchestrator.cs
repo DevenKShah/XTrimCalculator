@@ -44,7 +44,10 @@ namespace XTrimCalculator.Application
             {
                 response.Errors = new[] { $"{ex.Message}: {ex.InnerException.Message}" };
             }
-
+            catch (OverflowException ex)
+            {
+                response.Errors = new[] { "The sum of numbers is too long. Brain fart." };
+            }
             return response;
         }
     }

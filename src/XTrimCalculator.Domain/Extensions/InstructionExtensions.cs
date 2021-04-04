@@ -27,21 +27,30 @@ namespace XTrimCalculator.Domain.Extensions
                 {
                     return new Instruction(splitData[0], splitData[1]);
                 }
-                catch(ArgumentException ex)
+                catch (ArgumentException ex)
                 {
                     throw new ArgumentException($"Exception on line {index + 1}", ex);
                 }
             }).ToList();
         }
 
-        public static decimal ApplyInstruction(this decimal startValue, Instruction instruction) =>
-            instruction.Operation switch
+        public static decimal ApplyInstruction(this decimal startValue, Instruction instruction)
+        {
+            try
             {
-                Operation.Add => startValue + instruction.Value,
-                Operation.Subtract => startValue - instruction.Value,
-                Operation.Multiply => startValue * instruction.Value,
-                Operation.Divide => startValue / instruction.Value,
-                _ => throw new InvalidOperationException()
-            };
+                return instruction.Operation switch
+                {
+                    Operation.Add => startValue + instruction.Value,
+                    Operation.Subtract => startValue - instruction.Value,
+                    Operation.Multiply => startValue * instruction.Value,
+                    Operation.Divide => startValue / instruction.Value,
+                    _ => throw new InvalidOperationException()
+                };
+            }
+            catch (OverflowException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
