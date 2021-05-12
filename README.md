@@ -31,6 +31,6 @@ The instructions can be saved in a text file which can be passed as argument to 
 
 `XTrimCalculator.ConsoleApp C:\Temp\instruction.txt`
 
-The instructions can also be passed directly to the application
+The instructions can also be passed as in-line arguments
 
 `XTrimCalculator.ConsoleApp "add 2" "mulitply 5" "apply 3"`
